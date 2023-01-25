@@ -225,7 +225,9 @@ MemoryDataBase* getMemoryReaderByData(const char* str) {
 		result = new MemoryData<double>(addr, id.start, id.pos);
 	else if (strncmp(type.start, "c", type.pos) == 0)
 		result = new MemoryData<char>(addr, id.start, id.pos);
-
+	else if (strncmp(type.start, "p", type.pos) == 0)
+		result = new MemoryData<void*>(addr, id.start, id.pos);
+	
 	return result;
 }
 
